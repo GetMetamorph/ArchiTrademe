@@ -41,3 +41,7 @@ ArchiTradeMe est une jeune startup visant à lancer sa plateforme de mise en rel
 ## Ouvrages de référence
 - IntelliJ
 - Insomnia ou Postman
+
+## Infrastructure WIP
+
+![image](https://user-images.githubusercontent.com/32987211/218122066-98c0c6ac-96f4-4a73-89cb-e19e185e2a1d.png)
