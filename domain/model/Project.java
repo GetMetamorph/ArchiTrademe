@@ -92,14 +92,14 @@ public class Project {
     @Override
     public String toString() {
         return "Project{" +
-                "id=" + id +
+                "id=" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", budget=" + budget +
-                ", deadline=" + deadline +
-                ", clientId=" + clientId +
-                ", consultantId=" + consultantId +
-                ", accepted=" + accepted +
+                ", budget=" + budget + '\'' +
+                ", deadline=" + deadline + '\'' +
+                ", clientId=" + clientId + '\'' +
+                ", consultantId=" + consultantId + '\'' +
+                ", accepted=" + accepted + '\'' +
                 '}';
     }
 }

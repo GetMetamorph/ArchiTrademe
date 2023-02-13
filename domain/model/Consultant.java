@@ -53,16 +53,16 @@ public class Consultant extends User {
     @Override
     public String toString() {
         return "Consultant{" +
-                "id=" + super.getId() +
+                "id=" + super.getId() + '\'' +
                 ", name='" + super.getName() + '\'' +
                 ", surname='" + super.getSurname() + '\'' +
                 ", email='" + super.getEmail() + '\'' +
                 ", phone='" + super.getPhone() + '\'' +
-                ", skills=" + skills +
-                ", hourlyRate=" + hourlyRate +
-                ", available=" + available +
+                ", skills=" + skills + '\'' +
+                ", hourlyRate=" + hourlyRate + '\'' +
+                ", available=" + available + '\'' +
                 ", paymentModality='" + paymentModality + '\'' +
-                ", projects=" + super.getProjects() +
+                ", projects=" + super.getProjects() + + '\'' +
                 ", password='" + super.getPassword() + '\'' +
                 '}';
     }
