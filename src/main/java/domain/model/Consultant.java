@@ -1,4 +1,4 @@
-package com.architrademe.domain.model;
+package domain.model;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.architrademe.domain.event;
+package domain.event;
 
-import com.architrademe.domain.model.Client;
+import domain.model.Client;
 import org.springframework.context.ApplicationEvent;
 
 public class ClientEvent extends ApplicationEvent {

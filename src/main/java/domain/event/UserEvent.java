@@ -1,6 +1,6 @@
-package com.architrademe.domain.event;
+package domain.event;
 
-import com.architrademe.domain.model.User;
+import domain.model.User;
 import org.springframework.context.ApplicationEvent;
 
 public class UserEvent extends ApplicationEvent {
