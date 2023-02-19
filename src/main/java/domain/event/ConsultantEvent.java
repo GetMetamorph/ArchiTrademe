@@ -29,17 +29,3 @@ public class ConsultantEvent extends ApplicationEvent {
         this.eventType = eventType;
     }
 }
-
-public class AvailabilityChangedEvent extends ConsultantEvent {
-    private final boolean available;
-
-    public AvailabilityChangedEvent(Object source, Consultant consultant, boolean available) {
-        super(source, consultant);
-        this.available = available;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-}
-

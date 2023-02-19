@@ -13,11 +13,11 @@ public class Client extends User {
         return "Client{" +
                 "id=" + super.getId() +
                 ", name='" + super.getName() + '\'' +
-                ", surname='" + surname + '\'' +
-                ", phone='" + phone + '\'' +
+                ", surname='" + super.getSurname() + '\'' +
+                ", phone='" + super.getPhone() + '\'' +
                 ", email='" + super.getEmail() + '\'' +
                 ", projects=" + super.getProjects() +
-                ", password='" + super.getPassword() + '\'
+                ", password='" + super.getPassword() + '\''+
                 '}';
     }
 }
