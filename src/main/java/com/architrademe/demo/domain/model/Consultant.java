@@ -3,14 +3,14 @@ package com.architrademe.demo.domain.model;
 import java.util.List;
 
 public class Consultant extends User {
-    private List<String> skills;
+    private List<Skill> skills;
     private Double hourlyRate;
     private Boolean available;
     private String paymentModality;
 
     public Consultant() {}
 
-    public Consultant(String name, String surname, String phone, String email, String password, List<String> skills, Double hourlyRate, Boolean available, String paymentModality) {
+    public Consultant(String name, String surname, String phone, String email, String password, List<Skill> skills, Double hourlyRate, Boolean available, String paymentModality) {
         super(name, surname, phone, email, password);
         this.skills = skills;
         this.hourlyRate = hourlyRate;
@@ -18,11 +18,11 @@ public class Consultant extends User {
         this.paymentModality = paymentModality;
     }
 
-    public List<String> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<String> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 

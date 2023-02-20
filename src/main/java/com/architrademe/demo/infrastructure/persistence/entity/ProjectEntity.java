@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "projects")
-public class Project {
+public class ProjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,9 +17,9 @@ public class Project {
     private Long consultantId;
     private Boolean accepted;
 
-    public Project() {}
+    public ProjectEntity() {}
 
-    public Project(Long id, String name, String description, Double budget, Date deadline, Long clientId, Long consultantId, Boolean accepted) {
+    public ProjectEntity(Long id, String name, String description, Double budget, Date deadline, Long clientId, Long consultantId, Boolean accepted) {
         this.id = id;
         this.name = name;
         this.description = description;

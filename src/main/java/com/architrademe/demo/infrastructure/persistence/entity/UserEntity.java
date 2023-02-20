@@ -1,5 +1,6 @@
 package com.architrademe.demo.infrastructure.persistence.entity;
 
+import com.architrademe.demo.domain.model.Project;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User {
+public abstract class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,12 +19,12 @@ public abstract class User {
     private String phone;
     private String email;
     private String password;
-    @OneToMany(mappedBy = "user")
-    private List<Project> projects = new ArrayList<>();
+    @ManyToMany(mappedBy = "user")
+    private List<ProjectEntity> projects = new ArrayList<>();
 
-    public User() {}
+    public UserEntity() {}
 
-    public User(String name, String surname, String phone, String email, String password) {
+    public UserEntity(String name, String surname, String phone, String email, String password) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -63,19 +64,19 @@ public abstract class User {
         this.phone = phone;
     }
 
-    public List<Project> getProjects() {
+    public List<ProjectEntity> getProjects() {
         return projects;
     }
 
-    public void setProjects(List<Project> projects) {
+    public void setProjects(List<ProjectEntity> projects) {
         this.projects = projects;
     }
 
-    public void addProject(Project project) {
+    public void addProject(ProjectEntity project) {
         this.projects.add(project);
     }
 
-    public void removeProject(Project project) {
+    public void removeProject(ProjectEntity project) {
         this.projects.remove(project);
     }
 
@@ -98,7 +99,7 @@ public abstract class User {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        User user = (User) object;
+        UserEntity user = (UserEntity) object;
         return id.equals(user.id) && name.equals(user.name) && surname.equals(user.surname) && java.util.Objects.equals(phone, user.phone) && email.equals(user.email) && java.util.Objects.equals(projects, user.projects);
     }
 
