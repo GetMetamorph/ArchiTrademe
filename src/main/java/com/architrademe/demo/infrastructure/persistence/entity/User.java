@@ -1,23 +1,29 @@
-package domain.model;
+package com.architrademe.demo.infrastructure.persistence.entity;
+
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
+@Entity
+@Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String surname;
     private String phone;
     private String email;
     private String password;
+    @OneToMany(mappedBy = "user")
     private List<Project> projects = new ArrayList<>();
 
     public User() {}
 
     public User(String name, String surname, String phone, String email, String password) {
-        this.id = Long.valueOf(UUID.randomUUID().toString());
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -92,12 +98,11 @@ public abstract class User {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
         User user = (User) object;
         return id.equals(user.id) && name.equals(user.name) && surname.equals(user.surname) && java.util.Objects.equals(phone, user.phone) && email.equals(user.email) && java.util.Objects.equals(projects, user.projects);
     }
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, name, surname, phone, email, projects);
+        return Objects.hash(id, name, surname, phone, email, projects);
     }
 }

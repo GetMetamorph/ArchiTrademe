@@ -1,6 +1,6 @@
-package domain.event;
+package com.architrademe.demo.domain.event;
 
-import domain.model.Consultant;
+import com.architrademe.demo.domain.model.Consultant;
 import org.springframework.context.ApplicationEvent;
 
 public class ConsultantEvent extends ApplicationEvent {

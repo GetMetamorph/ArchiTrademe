@@ -1,9 +1,9 @@
-package domain.service;
+package com.architrademe.demo.domain.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import domain.model.Consultant;
+import com.architrademe.demo.domain.model.Consultant;
 
 public interface ConsultantService extends UserService {
     List<Consultant> getAllConsultants();

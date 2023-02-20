@@ -1,9 +1,9 @@
-package domain.service;
+package com.architrademe.demo.domain.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import domain.model.Project;
+import com.architrademe.demo.domain.model.Project;
 
 public interface ProjectService {
     List<Project> getAllProjects();

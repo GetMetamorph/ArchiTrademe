@@ -1,4 +1,4 @@
-package domain.event;
+package com.architrademe.demo.domain.event;
 
 import org.springframework.context.ApplicationEvent;
 

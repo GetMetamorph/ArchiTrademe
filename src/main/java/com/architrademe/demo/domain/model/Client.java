@@ -1,4 +1,4 @@
-package domain.model;
+package com.architrademe.demo.domain.model;
 
 public class Client extends User {
 
