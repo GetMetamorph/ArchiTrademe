@@ -33,7 +33,6 @@ public class Skill {
         this.name = skill.getName();
     }
 
-    public void add
 
     @Override
     public String toString() {

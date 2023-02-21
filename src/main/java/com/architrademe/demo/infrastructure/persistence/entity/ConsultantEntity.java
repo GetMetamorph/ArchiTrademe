@@ -27,12 +27,10 @@ public class ConsultantEntity extends UserEntity {
 
     public void addSkill(SkillEntity skill) {
         skills.add(skill);
-        skill.setConsultant(this);
     }
 
     public void removeSkill(SkillEntity skill) {
         skills.remove(skill);
-        skill.setConsultant(null);
     }
 
     public Double getHourlyRate() {
@@ -62,7 +60,10 @@ public class ConsultantEntity extends UserEntity {
     @Override
     public String toString() {
         return "ConsultantEntity{" +
-                "id=" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='"
+                "hourlyRate=" + hourlyRate +
+                ", available=" + available +
+                ", paymentModality='" + paymentModality + '\'' +
+                ", skills=" + skills +
+                '}';
+    }
+}

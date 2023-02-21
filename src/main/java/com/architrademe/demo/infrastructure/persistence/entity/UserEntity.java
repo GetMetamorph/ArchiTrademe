@@ -1,6 +1,7 @@
 package com.architrademe.demo.infrastructure.persistence.entity;
 
 import com.architrademe.demo.domain.model.Project;
+import com.architrademe.demo.domain.model.User;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class UserEntity {
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -95,6 +96,29 @@ public abstract class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public User toDomainModel() {
+        User user = new User();
+        user.setId(this.getId());
+        user.setName(this.getName());
+        user.setSurname(this.getSurname());
+        user.setPhone(this.getPhone());
+        user.setEmail(this.getEmail());
+        user.setPassword(this.getPassword());
+        return user;
+    }
+
+    public static UserEntity fromDomainModel(User user) {
+        UserEntity entity = new UserEntity();
+        entity.setId(user.getId());
+        entity.setName(user.getName());
+        entity.setSurname(user.getSurname());
+        entity.setEmail(user.getEmail());
+        entity.setPassword(user.getPassword());
+        entity.setPhone(user.getPhone());
+        return entity;
+    }
+
 
     public boolean equals(Object object) {
         if (this == object) return true;
