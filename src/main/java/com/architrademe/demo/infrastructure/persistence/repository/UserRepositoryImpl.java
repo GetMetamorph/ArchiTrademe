@@ -55,4 +55,13 @@ public class UserRepositoryImpl implements UserRepository {
             entityManager.remove(userEntity);
         }
     }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id) {
+        UserEntity userEntity = entityManager.find(UserEntity.class, id);
+        if (userEntity != null) {
+            entityManager.remove(userEntity);
+        }
+    }
 }
