@@ -2,7 +2,9 @@ package com.architrademe.demo.domain.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.architrademe.demo.infrastructure.persistence.entity.UserEntity;
 import org.springframework.stereotype.Service;
 
 import com.architrademe.demo.domain.model.User;
@@ -19,27 +21,35 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        List<UserEntity> userEntities = userRepository.findAll();
+        return userEntities.stream().map(UserEntity::toDomainModel).collect(Collectors.toList());
     }
 
     @Override
     public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
+        return userRepository.findById(id).map(UserEntity::toDomainModel);
     }
 
     @Override
     public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByEmail(email).map(UserEntity::toDomainModel);
     }
 
     @Override
     public void addUser(User user) {
-        userRepository.save(user);
+        UserEntity userEntity = UserEntity.fromDomainModel(user);
+        userRepository.save(userEntity);
     }
 
     @Override
     public void updateUser(User user) {
-        userRepository.save(user);
+        Optional<UserEntity> existingUserEntity = userRepository.findById(user.getId());
+        if (existingUserEntity.isPresent()) {
+            UserEntity updatedUserEntity = UserEntity.fromDomainModel(user);
+            userRepository.save(updatedUserEntity);
+        } else {
+            throw new RuntimeException("User not found");
+        }
     }
 
     @Override
@@ -47,3 +57,4 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 }
+

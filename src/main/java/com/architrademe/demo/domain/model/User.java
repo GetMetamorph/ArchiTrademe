@@ -100,4 +100,18 @@ public class User {
     public int hashCode() {
         return Objects.hash(super.hashCode(), id, name, surname, phone, email, projects);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", projects=" + projects +
+                '}';
+    }
 }
+

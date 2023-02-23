@@ -1,6 +1,8 @@
 package com.architrademe.demo.domain.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Project {
     private Long id;
@@ -11,6 +13,7 @@ public class Project {
     private Long clientId;
     private Long consultantId;
     private Boolean accepted;
+    private List<User> users = new ArrayList<>();
 
     public Project() {}
 
@@ -87,6 +90,15 @@ public class Project {
 
     public void setAccepted(Boolean accepted) {
         this.accepted = accepted;
+    }
+
+    // create method getUsers() that returns a list of users
+    public List <User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     @Override

@@ -3,6 +3,8 @@ package com.architrademe.demo.infrastructure.persistence.entity;
 import com.architrademe.demo.domain.model.Project;
 import com.architrademe.demo.domain.model.User;
 import jakarta.persistence.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,8 @@ public class UserEntity {
     private String phone;
     private String email;
     private String password;
-    @ManyToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "users")
+    @LazyCollection(LazyCollectionOption.EXTRA)
     private List<ProjectEntity> projects = new ArrayList<>();
 
     public UserEntity() {}
@@ -105,6 +108,9 @@ public class UserEntity {
         user.setPhone(this.getPhone());
         user.setEmail(this.getEmail());
         user.setPassword(this.getPassword());
+        for (ProjectEntity projectEntity : this.getProjects()) {
+            user.addProject(projectEntity.toDomainModel());
+        }
         return user;
     }
 
@@ -116,6 +122,9 @@ public class UserEntity {
         entity.setEmail(user.getEmail());
         entity.setPassword(user.getPassword());
         entity.setPhone(user.getPhone());
+        for (Project project : user.getProjects()) {
+            entity.addProject(ProjectEntity.fromDomainModel(project));
+        }
         return entity;
     }
 

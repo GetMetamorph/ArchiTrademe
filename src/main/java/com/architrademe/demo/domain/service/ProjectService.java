@@ -4,11 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import com.architrademe.demo.domain.model.Project;
+import com.architrademe.demo.domain.model.User;
 
 public interface ProjectService {
     List<Project> getAllProjects();
 
     Optional<Project> getProjectById(Long id);
+
+    List<User> getUsersByProjectId(Long projectId);
 
     List<Project> getProjectsByClientId(Long clientId);
 

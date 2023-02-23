@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.architrademe.demo.domain.model.Project;
+import com.architrademe.demo.domain.model.User;
 import com.architrademe.demo.infrastructure.persistence.repository.ProjectRepository;
 
 //Se servir de cette class Impl pour faire le lien entre le repository et le service
@@ -23,6 +24,11 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Optional<Project> getProjectById(Long id) {
         return Optional.empty();
+    }
+
+    @Override
+    public List<User> getUsersByProjectId(Long projectId) {
+        return null;
     }
 
     @Override

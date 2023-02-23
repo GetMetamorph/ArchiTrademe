@@ -2,6 +2,9 @@ package com.architrademe.demo.infrastructure.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "skill")
@@ -12,6 +15,10 @@ public class SkillEntity {
 
     @Column(name = "name")
     private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+   //@JoinColumn(name = "consultant_id")
+    private ConsultantEntity consultant;
 
     public SkillEntity() {}
 
