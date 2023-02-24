@@ -61,5 +61,4 @@ public class UserDTO {
         user.setPhone(phone);
         return user;
     }
-
 }

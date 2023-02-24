@@ -27,4 +27,13 @@ public class ResponseMapper {
 
         return response;
     }
+
+    public ResponseDTO<UserDTO> toErrorResponseDTO(UserDTO userDTO, String errorMessage) {
+        ResponseDTO<UserDTO> response = new ResponseDTO<>(errorMessage,userDTO);
+        response.setData(userDTO);
+        response.setMessage(errorMessage);
+        response.setSuccess(false);
+
+        return response;
+    }
 }
